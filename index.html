@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ellie's Good Deed Animals</title>
+  <meta name="description" content="Do good deeds, hatch eggs and collect animals from all over the world.">
+  <meta name="theme-color" content="#fff4e4">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Good Deeds">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="title"><small>Ellie's</small>Good Deed Animals</div>
+      <button id="sound-btn" class="icon-btn" aria-label="Sound on or off"></button>
+    </header>
+
+    <main>
+      <section id="deeds-screen" class="screen active" aria-label="Good deeds">
+        <p class="intro">Do a good deed to hatch its egg!</p>
+        <div id="deeds"></div>
+        <button id="reroll-btn" class="reroll-btn"><span class="ico" data-icon="dice"></span>Different deeds please</button>
+      </section>
+
+      <section id="album-screen" class="screen" aria-label="My animals">
+        <div class="album-head">
+          <h2>My Animals</h2>
+          <div class="progress"><div id="progress-fill"></div></div>
+          <p id="album-count"></p>
+        </div>
+        <div id="album"></div>
+
+        <details class="grownups">
+          <summary><span class="ico" data-icon="gear"></span>For grown-ups</summary>
+          <p>Ellie's animals are saved in this browser on this device. If you want to move to another device or browser, or keep a safe copy, save a backup code somewhere.</p>
+          <div class="row">
+            <button id="backup-btn" class="small-btn">Show backup code</button>
+            <button id="restore-btn" class="small-btn">Load a backup code</button>
+          </div>
+          <textarea id="backup-text" rows="4" placeholder="Backup code goes here" spellcheck="false" hidden></textarea>
+          <p id="backup-msg" class="msg"></p>
+          <div class="row">
+            <button id="reset-btn" class="small-btn danger">Start again from scratch</button>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <nav class="bottom">
+      <button class="tab active" data-screen="deeds-screen"><span class="ico egg-ico"></span>Good Deeds</button>
+      <button class="tab" data-screen="album-screen"><span class="ico" data-icon="album"></span>My Animals <span id="found-badge" class="badge"></span></button>
+    </nav>
+  </div>
+
+  <div id="reveal" class="overlay" hidden>
+    <div class="rays"></div>
+    <div class="reveal-inner">
+      <h2 id="reveal-title">Tap the egg to hatch it!</h2>
+      <div class="stage">
+        <div class="glow"></div>
+        <img id="reveal-egg" alt="A mystery egg" draggable="false">
+        <img id="reveal-creature" alt="" draggable="false">
+      </div>
+      <div id="reveal-info">
+        <div id="reveal-tag" class="tag"></div>
+        <h3 id="reveal-name"></h3>
+        <p id="reveal-fact"></p>
+        <button id="reveal-close" class="big-btn">Yay!</button>
+      </div>
+    </div>
+    <div id="confetti"></div>
+    <div class="flash"></div>
+  </div>
+
+  <div id="detail" class="overlay sheet" hidden>
+    <div class="card">
+      <button id="detail-close" class="icon-btn close" aria-label="Close"></button>
+      <img id="detail-img" alt="" draggable="false">
+      <div id="detail-tag" class="tag"></div>
+      <h3 id="detail-name"></h3>
+      <p class="home" id="detail-home"></p>
+      <p id="detail-fact"></p>
+      <p class="meta" id="detail-meta"></p>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
