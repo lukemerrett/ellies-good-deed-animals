@@ -249,7 +249,7 @@
     Sound.pop();
   }
 
-  $('reveal-egg').addEventListener('click', () => {
+  document.querySelector('#reveal .stage').addEventListener('click', () => {
     if (!hatching || cracks >= 3) return;
     cracks += 1;
     const egg = $('reveal-egg');
